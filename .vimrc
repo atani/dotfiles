@@ -1,7 +1,29 @@
 " タイトルをウインドウ枠に表示
 set title
+
 " ルーラーを表示
 set ruler
+
+" バックスペースキーで削除できるものを指定
+" " indent  : 行頭の空白
+" " eol     : 改行
+" " start   : 挿入モード開始位置より手前の文字
+set backspace=indent,eol,start
+
+" シンタックスハイライトを有効にする
+syntax on
+" 検索結果文字列のハイライトを有効にする
+set hlsearch
+
+" タブが対応する空白の数
+set tabstop=4
+
+" タブやバックスペースの使用等の編集操作をするときに、タブが対応する空白の数
+set softtabstop=4
+
+" インデントの各段階に使われる空白の数
+set shiftwidth=4
+
  
 """ twitvim
 let twitvim_count = 40
