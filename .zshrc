@@ -40,3 +40,5 @@ export LC_CTYPE="ja_JP.UTF-8"
  
 bindkey -e
 [ -s ${HOME}/.rvm/scripts/rvm ] && source ${HOME}/.rvm/scripts/rvm
+
+alias rm="rmtrash"
