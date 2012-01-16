@@ -12,6 +12,7 @@ set backspace=indent,eol,start
 
 " シンタックスハイライトを有効にする
 syntax on
+
 " 検索結果文字列のハイライトを有効にする
 set hlsearch
 
@@ -31,6 +32,8 @@ set shiftwidth=4
 "----------------------------------------
 " ランタイムパスはNeoBundleで設定済み
 " set runtimepath+=
+"Howmコマンドキーマップ
+let QFixHowm_Key = 'g'
 " QFixHowm互換を切る
 let QFixHowm_Convert = 0
 " デフォルトの保存先
@@ -43,17 +46,17 @@ let qfixmemo_fileencoding = 'utf-8'
 let qfixmemo_fileformat = 'unix'
 " メモのファイルタイプは自動判別
 let qfixmemo_filetype = ''
-" 新規メモ用のテンプレート
-let qfixmemo_template = [
-  \'%TITLE%  %TAG%',
-    \""
-  \]
 " MRUの基準ディレクトリ
 let QFixMRU_RootDir = qfixmemo_dir
 " MRUファイルのパス
 let QFixMRU_Filename = qfixmemo_dir . '/.qfixmru'
 " qfixmemo-chenv.vimの基準ディレクトリ
 let qfixmemo_chdir = qfixmemo_dir
+" 新規エントリーのテンプレート
+let QFixHowm_Template = [
+  \"= %TAG%",
+  \""
+\]
 " 切り替え用のkeybind
 function! QFixMemoKeymapPost()
   nnoremap <silent> <leader>hh :echo qfixmemo_dir<CR>
@@ -104,6 +107,8 @@ NeoBundle 'https://github.com/vim-scripts/TwitVim.git'
 NeoBundle 'https://github.com/thinca/vim-ref.git'
 NeoBundle 'https://github.com/rickard/project.vim.git'
 NeoBundle 'https://github.com/Lokaltog/vim-powerline'
+NeoBundle 'https://github.com/fuenor/qfixhowm.git'
+NeoBundle 'https://github.com/vim-scripts/molokai.git'
 
 filetype plugin on
 filetype indent on

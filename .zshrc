@@ -138,6 +138,7 @@ alias df="df -h"
 
 alias su="su -l"
 alias ssh="~/dev/tools/ssh_wrapper.sh"
+alias rm="rmtrash"
 
 
 ## terminal configuration
