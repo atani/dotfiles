@@ -106,7 +106,6 @@ alias du="du -h"
 alias df="df -h"
 
 alias su="su -l"
-alias ssh="~/dev/tools/ssh_wrapper.sh"
 alias rm="rmtrash"
 
 
@@ -167,12 +166,14 @@ precmd () {
 }
 RPROMPT="%1(v|%F{green}%1v%f|)"
 
-
 # sshのホスト名をknown_hostsから補完する
 function print_known_hosts (){
-  if [ -f $HOME/.ssh/known_hosts ]; then
-          cat $HOME/.ssh/known_hosts | tr ',' ' ' | cut -d' ' -f1
-            fi  
-        }
-        _cache_hosts=($( print_known_hosts ))
+    if [ -f $HOME/.ssh/known_hosts ]; then
+        cat $HOME/.ssh/known_hosts | tr ',' ' ' | cut -d' ' -f1
+    fi  
+}
+_cache_hosts=($( print_known_hosts ))
 
+## load user .zshrc configuration file
+##
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
