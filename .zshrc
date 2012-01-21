@@ -12,7 +12,7 @@ case ${UID} in
 esac
 
 PATH=$PATH:/Users/pb0061/dev/tools
-REPORTTIME=1 #n秒以上かかったコマンドは統計情報を表示する。
+REPORTTIME=3 #n秒以上かかったコマンドは統計情報を表示する。
 
 # set prompt
 #
@@ -155,6 +155,18 @@ xterm|xterm-color|kterm|kterm-color)
     }
     ;;
 esac
+
+# ブランチ名をプロンプトに表示する。
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' formats '(%s)-[%b]'
+zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a]'
+precmd () {
+    psvar=()
+    LANG=en_US.UTF-8 vcs_info
+    [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+}
+RPROMPT="%1(v|%F{green}%1v%f|)"
+
 
 # sshのホスト名をknown_hostsから補完する
 function print_known_hosts (){
