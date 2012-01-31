@@ -11,7 +11,7 @@ case ${UID} in
     ;;
 esac
 
-PATH=$PATH:/Users/pb0061/dev/tools
+PATH=$PATH:/Users/pb0061/dev/tools:/usr/local/bin
 REPORTTIME=3 #n秒以上かかったコマンドは統計情報を表示する。
 
 # set prompt
