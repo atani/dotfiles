@@ -74,6 +74,9 @@ nnoremap ,tu :<C-u>UserTwitter<CR><C-w>j
 nnoremap ,tr :<C-u>RepliesTwitter<CR><C-w>j
 nnoremap ,tn :<C-u>NextTwitter<CR>
 
+""" smartchr
+inoremap <expr> = smartchr#one_of(' = ', ' == ', ' === ', '=')
+
 autocmd FileType twitvim call s:twitvim_my_settings()
 function! s:twitvim_my_settings()
 	  set nowrap
