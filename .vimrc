@@ -11,7 +11,7 @@ set ruler
 set backspace=indent,eol,start
 
 " シンタックスハイライトを有効にする
-syntax on
+" syntax on
 
 " 検索結果文字列のハイライトを有効にする
 set hlsearch
