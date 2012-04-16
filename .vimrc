@@ -156,6 +156,7 @@ NeoBundle 'https://github.com/hotchpotch/perldoc-vim.git'
 NeoBundle 'https://github.com/Shougo/neocomplcache.git'
 NeoBundle 'https://github.com/Shougo/neocomplcache-snippets-complete.git'
 NeoBundle 'https://github.com/fuenor/qfixgrep.git'
+NeoBundle 'https://github.com/vim-scripts/sudo.vim.git'
 
 filetype plugin on
 filetype indent on
