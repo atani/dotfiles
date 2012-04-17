@@ -16,6 +16,9 @@ set backspace=indent,eol,start
 " 検索結果文字列のハイライトを有効にする
 set hlsearch
 
+" 行番号を表示する
+set number
+
 " tabをスペースに置換
 set expandtab
 
