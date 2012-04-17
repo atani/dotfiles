@@ -28,6 +28,12 @@ set softtabstop=4
 " インデントの各段階に使われる空白の数
 set shiftwidth=4
 
+" PowerLine
+let g:Powerline_symbols = 'fancy' 
+set nocompatible   " Disable vi-compatibility
+set laststatus=2   " Always show the statusline
+set encoding=utf-8 " Necessary to show unicode glyphs
+
 " QFixMemo
 "----------------------------------------
 " ランタイムパスはNeoBundleで設定済み
@@ -157,6 +163,8 @@ NeoBundle 'https://github.com/Shougo/neocomplcache.git'
 NeoBundle 'https://github.com/Shougo/neocomplcache-snippets-complete.git'
 NeoBundle 'https://github.com/fuenor/qfixgrep.git'
 NeoBundle 'https://github.com/vim-scripts/sudo.vim.git'
+NeoBundle 'https://github.com/tpope/vim-pathogen.git'
+NeoBundle 'https://github.com/gmarik/vundle.git'
 
 filetype plugin on
 filetype indent on
