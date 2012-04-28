@@ -1,0 +1,28 @@
+# 全てのファイルを一度、無視
+/*
+
+# さらに、ドットから始まる設定ファイルを無視
+/.*
+
+# "無視したくないファイル"は以下に"![ファイル名]"で指定
+##### Gitで管理するファイルリスト #####
+!/.bash_profile
+!/.bashrc
+!/.vimrc
+!/.vim
+!/.gitignore
+!/.gitconfig
+!/.gitmodules
+!/.git-completion.bash
+!/bash_completion_tmux.sh
+!/.screenrc
+!/.tmux.conf
+!/.tscreenrc
+!/.zshrc
+!/bin
+!/.zsh
+
+# 上記に"無視したくないファイル"としてリスト化した中から、さらに"無視したいファイル"を指定
+/.vim/.netrwhist
+/.vim/bundle
+/.zsh/*.rc
