@@ -1,2 +1,7 @@
 [core]
 	editor = /usr/bin/vim
+[user]
+	name = atani
+	email = info@no14.biz
+[color]
+	ui = true
