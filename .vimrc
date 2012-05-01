@@ -1,3 +1,54 @@
+" vi との互換性OFF
+set nocompatible
+" ファイル形式の検出を無効にする
+filetype off
+
+" Vundle を初期化して
+" Vundle 自身も Vundle で管理
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
+
+" github にあるプラグイン
+Bundle 'h1mesuke/unite-outline.git'
+Bundle 'kana/vim-smartchr.git'
+Bundle 'kchmck/vim-coffee-script.git'
+Bundle 'mattn/zencoding-vim.git'
+Bundle 'othree/eregex.vim.git'
+Bundle 'Shougo/neobundle.vim.git'
+Bundle 'Shougo/unite.vim.git'
+Bundle 'Shougo/vimfiler.git'
+Bundle 'Shougo/vimproc.git'
+Bundle 'Shougo/vimshell.git'
+Bundle 'thinca/vim-qfreplace.git'
+Bundle 'thinca/vim-quickrun.git'
+Bundle 'tsukkee/unite-tag.git'
+Bundle 'ujihisa/shadow.vim.git'
+Bundle 'vim-scripts/delphi.vim.git'
+Bundle 'vim-scripts/JSON.vim.git'
+Bundle 'vim-scripts/TwitVim.git'
+Bundle 'thinca/vim-ref.git'
+Bundle 'rickard/project.vim.git'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'fuenor/qfixhowm.git'
+Bundle 'vim-scripts/molokai.git'
+Bundle 'tpope/vim-surround.git'
+Bundle 'petdance/vim-perl.git'
+Bundle 'hotchpotch/perldoc-vim.git'
+Bundle 'Shougo/neocomplcache.git'
+Bundle 'Shougo/neocomplcache-snippets-complete.git'
+Bundle 'fuenor/qfixgrep.git'
+Bundle 'vim-scripts/sudo.vim.git'
+Bundle 'tpope/vim-pathogen.git'
+Bundle 'gmarik/vundle.git'
+Bundle 'Google-translator'
+
+nmap bi   :BundleInstall<CR>
+nmap ,bi  :BundleInstall!<CR>
+nmap bc   :BundleClean<CR>
+
+" ファイル形式検出、プラグイン、インデントを ON
+filetype plugin indent on 
+
 " タイトルをウインドウ枠に表示
 set title
 
@@ -121,50 +172,4 @@ nnoremap ,tu :<C-u>UserTwitter<CR><C-w>j
 nnoremap ,tr :<C-u>RepliesTwitter<CR><C-w>j
 nnoremap ,tn :<C-u>NextTwitter<CR>
 
-" vi との互換性OFF
-set nocompatible
-" ファイル形式の検出を無効にする
-filetype off
-
-" Vundle を初期化して
-" Vundle 自身も Vundle で管理
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
-
-" github にあるプラグイン
-Bundle 'h1mesuke/unite-outline.git'
-Bundle 'kana/vim-smartchr.git'
-Bundle 'kchmck/vim-coffee-script.git'
-Bundle 'mattn/zencoding-vim.git'
-Bundle 'othree/eregex.vim.git'
-Bundle 'Shougo/neobundle.vim.git'
-Bundle 'Shougo/unite.vim.git'
-Bundle 'Shougo/vimfiler.git'
-Bundle 'Shougo/vimproc.git'
-Bundle 'Shougo/vimshell.git'
-Bundle 'thinca/vim-qfreplace.git'
-Bundle 'thinca/vim-quickrun.git'
-Bundle 'tsukkee/unite-tag.git'
-Bundle 'ujihisa/shadow.vim.git'
-Bundle 'vim-scripts/delphi.vim.git'
-Bundle 'vim-scripts/JSON.vim.git'
-Bundle 'vim-scripts/TwitVim.git'
-Bundle 'thinca/vim-ref.git'
-Bundle 'rickard/project.vim.git'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'fuenor/qfixhowm.git'
-Bundle 'vim-scripts/molokai.git'
-Bundle 'tpope/vim-surround.git'
-Bundle 'petdance/vim-perl.git'
-Bundle 'hotchpotch/perldoc-vim.git'
-Bundle 'Shougo/neocomplcache.git'
-Bundle 'Shougo/neocomplcache-snippets-complete.git'
-Bundle 'fuenor/qfixgrep.git'
-Bundle 'vim-scripts/sudo.vim.git'
-Bundle 'tpope/vim-pathogen.git'
-Bundle 'gmarik/vundle.git'
-Bundle 'Google-translator'
-
-" ファイル形式検出、プラグイン、インデントを ON
-filetype plugin indent on 
 
