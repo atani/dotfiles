@@ -48,3 +48,10 @@ git submodule update
 # Bundleinstall 
 git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 vim +BundleInstall! +q
+
+# vimproc setup
+cd ~/dotfiles/.vim/bundle/vimproc/
+case $OSTYPE in
+    darwin11.3.0 ) make -f make_mac.mak ;;
+    linux-gnu )    make -f make_unix.mak ;;
+esac
