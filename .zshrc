@@ -93,6 +93,7 @@ alias j="jobs -l"
 case "${OSTYPE}" in
 freebsd*|darwin*)
     alias ls="ls -G -w"
+    alias rm="rmtrash"
     ;;
 linux*)
     alias ls="ls --color"
@@ -107,7 +108,6 @@ alias du="du -h"
 alias df="df -h"
 
 alias su="su -l"
-alias rm="rmtrash"
 
 
 ## terminal configuration
