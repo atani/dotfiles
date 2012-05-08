@@ -175,6 +175,16 @@ function print_known_hosts (){
 }
 _cache_hosts=($( print_known_hosts ))
 
-## load user .zshrc configuration file
-##
+#=============================
+# load user .zshrc configuration file
+#=============================
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
+#=============================
+# source zaw.zsh
+#=============================
+if [ -f ~/.zsh/zaw/zaw.zsh ]; then
+    source ~/.zsh/zaw/zaw.zsh
+    bindkey '^R' zaw-history
+fi
+
