@@ -40,6 +40,7 @@ setopt correct # command correct edition before each completion attempt
 setopt list_packed # compacked complete list display
 setopt noautoremoveslash # no remove postfix slash of command line
 setopt nolistbeep # no beep sound when complete list displayed
+setopt nonomatch
 
 ## Keybind configuration
 #
