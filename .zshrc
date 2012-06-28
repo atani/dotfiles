@@ -189,3 +189,6 @@ if [ -f ~/.zsh/zaw/zaw.zsh ]; then
     bindkey '^R' zaw-history
 fi
 
+#RVM
+[ -s ${HOME}/.rvm/scripts/rvm ] && source ${HOME}/.rvm/scripts/rvm
+
