@@ -11,9 +11,10 @@ case ${UID} in
     ;;
 esac
 
-#PATH=$PATH:/Users/pb0061/dev/tools
 PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/X11/bin:/Users/pb0061/dev/tools 
 REPORTTIME=3 #n秒以上かかったコマンドは統計情報を表示する。
+# RVM
+[ -s ${HOME}/.rvm/scripts/rvm ] && source ${HOME}/.rvm/scripts/rvm
 
 # set prompt
 #
@@ -188,3 +189,5 @@ if [ -f ~/.zsh/zaw/zaw.zsh ]; then
     bindkey '^R' zaw-history
 fi
 
+# rbenv
+eval "$(rbenv init -)"
