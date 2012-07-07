@@ -41,6 +41,7 @@ setopt correct # command correct edition before each completion attempt
 setopt list_packed # compacked complete list display
 setopt noautoremoveslash # no remove postfix slash of command line
 setopt nolistbeep # no beep sound when complete list displayed
+setopt nonomatch
 
 ## Keybind configuration
 #
@@ -189,5 +190,11 @@ if [ -f ~/.zsh/zaw/zaw.zsh ]; then
     bindkey '^R' zaw-history
 fi
 
+<<<<<<< HEAD
 # rbenv
 eval "$(rbenv init -)"
+=======
+#RVM
+[ -s ${HOME}/.rvm/scripts/rvm ] && source ${HOME}/.rvm/scripts/rvm
+
+>>>>>>> f1255040e58ddf16585c25638cca865312154c19

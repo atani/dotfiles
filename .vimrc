@@ -41,6 +41,7 @@ Bundle 'vim-scripts/sudo.vim.git'
 Bundle 'tpope/vim-pathogen.git'
 Bundle 'gmarik/vundle.git'
 Bundle 'Google-translator'
+Bundle 'Markdown'
 
 nmap bi   :BundleInstall<CR>
 nmap ,bi  :BundleInstall!<CR>
