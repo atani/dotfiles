@@ -190,11 +190,5 @@ if [ -f ~/.zsh/zaw/zaw.zsh ]; then
     bindkey '^R' zaw-history
 fi
 
-<<<<<<< HEAD
 # rbenv
 eval "$(rbenv init -)"
-=======
-#RVM
-[ -s ${HOME}/.rvm/scripts/rvm ] && source ${HOME}/.rvm/scripts/rvm
-
->>>>>>> f1255040e58ddf16585c25638cca865312154c19
