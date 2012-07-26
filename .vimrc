@@ -155,6 +155,10 @@ let g:neocomplcache_dictionary_filetype_lists = {
     \ 'perl'       : $HOME . '/.vim/dict/perl.dict'
     \ }
 
+" rubyのインデント制御
+au BufNewFile,BufRead *.erb set nowrap tabstop=2 shiftwidth=2
+au BufNewFile,BufRead *.rb set nowrap tabstop=2 shiftwidth=2
+
 " Define keyword.
 if !exists('g:neocomplcache_keyword_patterns')
   let g:neocomplcache_keyword_patterns = {}
