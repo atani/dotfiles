@@ -1,5 +1,3 @@
-# users generic .zshrc file for zsh(1)
-
 ## Environment variable configuration
 #
 # LANG
@@ -11,13 +9,18 @@ case ${UID} in
     ;;
 esac
 
+# Command history
+HISTFILE=$HOME/.zsh-history
+HISTSIZE=100000
+SAVEHIST=100000
+setopt extended_history
+function history-all { history -E 1 }
+
+# Path
 PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/X11/bin:/Users/pb0061/dev/tools 
 REPORTTIME=3 #n秒以上かかったコマンドは統計情報を表示する。
-# RVM
-[ -s ${HOME}/.rvm/scripts/rvm ] && source ${HOME}/.rvm/scripts/rvm
 
-# set prompt
-#
+# Set prompt
 autoload colors
 colors
 case ${UID} in
