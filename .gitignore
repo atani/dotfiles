@@ -8,6 +8,7 @@
 ##### Gitで管理するファイルリスト #####
 !/.bash_profile
 !/.bashrc
+!/.vimperatorrc
 !/.vimrc
 !/.vim
 !/.gitignore
