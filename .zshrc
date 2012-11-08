@@ -195,3 +195,8 @@ fi
 
 # rbenv
 eval "$(rbenv init -)"
+
+#=============================
+# source perlbrew
+#=============================
+source ~/perl5/perlbrew/etc/bashrc
