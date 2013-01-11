@@ -1,5 +1,6 @@
 " vi との互換性OFF
 set nocompatible
+
 " ファイル形式の検出を無効にする
 filetype off
 
@@ -11,37 +12,31 @@ call vundle#rc()
 " github にあるプラグイン
 Bundle 'h1mesuke/unite-outline.git'
 Bundle 'kana/vim-smartchr.git'
-Bundle 'kchmck/vim-coffee-script.git'
 Bundle 'mattn/zencoding-vim.git'
 Bundle 'othree/eregex.vim.git'
 Bundle 'Shougo/neobundle.vim.git'
 Bundle 'Shougo/unite.vim.git'
 Bundle 'Shougo/vimfiler.git'
-Bundle 'Shougo/vimproc.git'
 Bundle 'Shougo/vimshell.git'
 Bundle 'thinca/vim-qfreplace.git'
 Bundle 'thinca/vim-quickrun.git'
 Bundle 'tsukkee/unite-tag.git'
-Bundle 'ujihisa/shadow.vim.git'
 Bundle 'vim-scripts/delphi.vim.git'
 Bundle 'vim-scripts/JSON.vim.git'
-Bundle 'vim-scripts/TwitVim.git'
 Bundle 'thinca/vim-ref.git'
-Bundle 'rickard/project.vim.git'
 Bundle 'Lokaltog/vim-powerline'
-Bundle 'fuenor/qfixhowm.git'
 Bundle 'vim-scripts/molokai.git'
 Bundle 'tpope/vim-surround.git'
 Bundle 'petdance/vim-perl.git'
 Bundle 'hotchpotch/perldoc-vim.git'
 Bundle 'Shougo/neocomplcache.git'
-Bundle 'Shougo/neocomplcache-snippets-complete.git'
-Bundle 'fuenor/qfixgrep.git'
+Bundle 'Shougo/neosnippet.git'
 Bundle 'vim-scripts/sudo.vim.git'
 Bundle 'tpope/vim-pathogen.git'
 Bundle 'gmarik/vundle.git'
 Bundle 'Google-translator'
 Bundle 'Markdown'
+Bundle 'trinity.vim'
 
 nmap bi   :BundleInstall<CR>
 nmap ,bi  :BundleInstall!<CR>
@@ -89,44 +84,6 @@ set nocompatible   " Disable vi-compatibility
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show unicode glyphs
 
-" QFixMemo
-"----------------------------------------
-" ランタイムパスはNeoBundleで設定済み
-" set runtimepath+=
-"Howmコマンドキーマップ
-let QFixHowm_Key = 'g'
-" QFixHowm互換を切る
-let QFixHowm_Convert = 0
-" デフォルトの保存先
-let qfixmemo_dir = $HOME . '/Documents/qfixhowm'
-" デフォルトのファイル名命名規則
-let qfixmemo_filename = '%Y/%m/%Y-%m-%d-%H%M%S.txt'
-" メモのエンコーディング
-let qfixmemo_fileencoding = 'utf-8'
-" メモの改行コード
-let qfixmemo_fileformat = 'unix'
-" メモのファイルタイプは自動判別
-let qfixmemo_filetype = ''
-" MRUの基準ディレクトリ
-let QFixMRU_RootDir = qfixmemo_dir
-" MRUファイルのパス
-let QFixMRU_Filename = qfixmemo_dir . '/.qfixmru'
-" qfixmemo-chenv.vimの基準ディレクトリ
-let qfixmemo_chdir = qfixmemo_dir
-" 新規エントリーのテンプレート
-let QFixHowm_Template = [
-  \"= %TAG%",
-  \""
-\]
-" 切り替え用のkeybind
-function! QFixMemoKeymapPost()
-  nnoremap <silent> <leader>hh :echo qfixmemo_dir<CR>
-  "nnoremap <silent> <leader>ha :call QFixMemoChEnv('', 'time', '=')<CR>
-  nnoremap <silent> <leader>hm :call QFixMemoChEnv('main', 'time', '=')<CR>
-  "nnoremap <silent> <leader>hb :call QFixMemoChEnv('blog', 'none', '*')<CR>
-  "nnoremap <silent> <leader>hw :call QFixMemoChEnv('wiki', 'none', '=')<CR>
-endfunction
-
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
 " Use neocomplcache.
@@ -168,13 +125,5 @@ let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 " for snippets
 imap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : "\<C-n>"
 smap <C-k> <Plug>(neocomplcache_snippets_expand)
-
-""" twitvim
-let twitvim_count = 40
-nnoremap ,tp :<C-u>PosttoTwitter<CR>
-nnoremap ,tf :<C-u>FriendsTwitter<CR><C-w>j
-nnoremap ,tu :<C-u>UserTwitter<CR><C-w>j
-nnoremap ,tr :<C-u>RepliesTwitter<CR><C-w>j
-nnoremap ,tn :<C-u>NextTwitter<CR>
 
 
