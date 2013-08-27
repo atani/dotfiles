@@ -16,6 +16,7 @@ bin
 .bashrc
 .tmux.conf
 .zsh
+.rbenv
 "
 
 # 必要ディレクトリの作成

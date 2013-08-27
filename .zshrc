@@ -17,7 +17,7 @@ setopt extended_history
 function history-all { history -E 1 }
 
 # Path
-PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/X11/bin:/Users/pb0061/dev/tools 
+PATH=$HOME/.rbenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/X11/bin:$HOME/dev/tools 
 REPORTTIME=3 #n秒以上かかったコマンドは統計情報を表示する。
 
 # Set prompt
