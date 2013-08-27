@@ -57,6 +57,11 @@ case $OSTYPE in
     linux-gnu )  make -f make_unix.mak ;;
 esac
 
+curl -L http://xrl.us/perlbrew >/usr/local/bin/perlbrew
+chmod 755 /usr/local/bin/perlbrew
+
+/usr/local/bin/perlbrew init
+
 # bin file setup
 cp -p ~/dotfiles/bin/alc /usr/local/bin/
 
