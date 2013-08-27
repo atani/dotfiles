@@ -56,3 +56,6 @@ case $OSTYPE in
     linux-gnu )  make -f make_unix.mak ;;
 esac
 
+# bin file setup
+cp -p ~/dotfiles/bin/alc /usr/local/bin/
+
