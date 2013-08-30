@@ -194,7 +194,8 @@ if [ -f ~/.zsh/zaw/zaw.zsh ]; then
 fi
 
 # rbenv
-eval "$(rbenv init -)"
+eval "$(rbenv init - zsh)"
+
 
 #=============================
 # source perlbrew
