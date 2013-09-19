@@ -7,8 +7,7 @@ filetype off
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
   call neobundle#rc(expand('~/.vim/bundle'))
-  filetype plugin on
-  filetype indent on
+  filetype plugin indent on
 endif
 
 NeoBundle 'Shougo/vimproc', {
