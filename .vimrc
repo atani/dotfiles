@@ -4,39 +4,49 @@ set nocompatible
 " ファイル形式の検出を無効にする
 filetype off
 
-" Vundle を初期化して
-" Vundle 自身も Vundle で管理
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
+if has('vim_starting')
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+  call neobundle#rc(expand('~/.vim/bundle'))
+  filetype plugin on
+  filetype indent on
+endif
+
+NeoBundle 'Shougo/vimproc', {
+      \ 'build' : {
+      \     'windows' : 'make -f make_mingw32.mak',
+      \     'cygwin' : 'make -f make_cygwin.mak',
+      \     'mac' : 'make -f make_mac.mak',
+      \     'unix' : 'make -f make_unix.mak',
+      \    },
+      \ }
 
 " github にあるプラグイン
-Bundle 'h1mesuke/unite-outline.git'
-Bundle 'kana/vim-smartchr.git'
-Bundle 'mattn/zencoding-vim.git'
-Bundle 'othree/eregex.vim.git'
-Bundle 'Shougo/neobundle.vim.git'
-Bundle 'Shougo/unite.vim.git'
-Bundle 'Shougo/vimfiler.git'
-Bundle 'Shougo/vimshell.git'
-Bundle 'thinca/vim-qfreplace.git'
-Bundle 'thinca/vim-quickrun.git'
-Bundle 'tsukkee/unite-tag.git'
-Bundle 'vim-scripts/delphi.vim.git'
-Bundle 'vim-scripts/JSON.vim.git'
-Bundle 'thinca/vim-ref.git'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'vim-scripts/molokai.git'
-Bundle 'tpope/vim-surround.git'
-Bundle 'petdance/vim-perl.git'
-Bundle 'hotchpotch/perldoc-vim.git'
-Bundle 'Shougo/neocomplcache.git'
-Bundle 'Shougo/neosnippet.git'
-Bundle 'vim-scripts/sudo.vim.git'
-Bundle 'tpope/vim-pathogen.git'
-Bundle 'gmarik/vundle.git'
-Bundle 'Google-translator'
-Bundle 'Markdown'
-Bundle 'trinity.vim'
+NeoBundle 'bling/vim-airline.git'
+NeoBundle 'h1mesuke/unite-outline.git'
+NeoBundle 'kana/vim-smartchr.git'
+NeoBundle 'mattn/zencoding-vim.git'
+NeoBundle 'othree/eregex.vim.git'
+NeoBundle 'Shougo/neobundle.vim.git'
+NeoBundle 'Shougo/unite.vim.git'
+NeoBundle 'Shougo/vimfiler.git'
+NeoBundle 'Shougo/vimshell.git'
+NeoBundle 'thinca/vim-qfreplace.git'
+NeoBundle 'thinca/vim-quickrun.git'
+NeoBundle 'tsukkee/unite-tag.git'
+NeoBundle 'vim-scripts/delphi.vim.git'
+NeoBundle 'vim-scripts/JSON.vim.git'
+NeoBundle 'thinca/vim-ref.git'
+NeoBundle 'vim-scripts/molokai.git'
+NeoBundle 'tpope/vim-surround.git'
+NeoBundle 'petdance/vim-perl.git'
+NeoBundle 'hotchpotch/perldoc-vim.git'
+NeoBundle 'Shougo/neocomplcache.git'
+NeoBundle 'Shougo/neosnippet.git'
+NeoBundle 'vim-scripts/sudo.vim.git'
+NeoBundle 'tpope/vim-pathogen.git'
+NeoBundle 'Google-translator'
+NeoBundle 'Markdown'
+NeoBundle 'trinity.vim'
 
 nmap bi   :BundleInstall<CR>
 nmap ,bi  :BundleInstall!<CR>
@@ -126,4 +136,5 @@ let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 imap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : "\<C-n>"
 smap <C-k> <Plug>(neocomplcache_snippets_expand)
 
+NeoBundleCheck
 
