@@ -20,7 +20,7 @@ NeoBundle 'Shougo/vimproc', {
       \ }
 
 " github にあるプラグイン
-NeoBundle 'bling/vim-airline.git'
+NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'h1mesuke/unite-outline.git'
 NeoBundle 'kana/vim-smartchr.git'
 NeoBundle 'mattn/zencoding-vim.git'
@@ -47,9 +47,19 @@ NeoBundle 'Google-translator'
 NeoBundle 'Markdown'
 NeoBundle 'trinity.vim'
 
-nmap bi   :BundleInstall<CR>
-nmap ,bi  :BundleInstall!<CR>
-nmap bc   :BundleClean<CR>
+nmap ni   :NeoBundleInstall<CR>
+nmap ,ni  :NeoBundleInstall!<CR>
+nmap nc   :NeoBundleClean<CR>
+
+" lightline.vim のスキーマ設定
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'component': {
+      \   'readonly': '%{&readonly?"RO":""}',
+      \ },
+      \ 'separator': { 'left': '<', 'right': '<' },
+      \ 'subseparator': { 'left': '<', 'right': '<' }
+      \ }
 
 " ファイル形式検出、プラグイン、インデントを ON
 filetype plugin indent on 
