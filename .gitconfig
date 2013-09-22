@@ -5,3 +5,5 @@
 	email = info@no14.biz
 [color]
 	ui = auto
+[push]
+	default = simple
