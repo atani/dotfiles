@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# git clone git://github.com/glidenote/dotfiles.git 
+# git clone git://github.com/atani/dotfiles.git 
 # の後に流し、ホームディレクトリをgithubに置いてあるものに置き換える
 
 # gitで管理するファイルリスト
@@ -47,8 +47,8 @@ git submodule init
 git submodule update
 
 # Bundleinstall 
-git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-vim +BundleInstall! +q
+git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+vim +NeoBundleInstall! +q
 
 # vimproc setup
 cd ~/dotfiles/.vim/bundle/vimproc/
