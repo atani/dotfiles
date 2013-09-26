@@ -10,9 +10,11 @@ case ${UID} in
 esac
 
 # Command history
-HISTFILE=$HOME/.zsh-history
+HISTFILE=$HOME/.zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
+
+# コマンドの開始時のタイムスタンプ(エポックからの秒数)と実行時間(秒単位)をヒストリに含める。
 setopt extended_history
 function history-all { history -E 1 }
 
@@ -23,6 +25,7 @@ REPORTTIME=3 #n秒以上かかったコマンドは統計情報を表示する�
 # Set prompt
 autoload colors
 colors
+NOW=`date +"%Y/%m/%d %H:%M"`
 case ${UID} in
 0)
     PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') %B%{${fg[red]}%}%/#%{${reset_color}%}%b "
@@ -30,7 +33,7 @@ case ${UID} in
     SPROMPT="%B%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
     ;;
 *)
-    PROMPT="%{${fg[red]}%}%/%%%{${reset_color}%} "
+    PROMPT="$NOW %{${fg[red]}%}%/%%%{${reset_color}%} "
     PROMPT2="%{${fg[red]}%}%_%%%{${reset_color}%} "
     SPROMPT="%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} "
     [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
@@ -186,16 +189,16 @@ _cache_hosts=($( print_known_hosts ))
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
 #=============================
-# source zaw.zsh
+# source zsh-syntax-highlighting
 #=============================
-if [ -f ~/.zsh/zaw/zaw.zsh ]; then
-    source ~/.zsh/zaw/zaw.zsh
-    bindkey '^R' zaw-history
+if [ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+    source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
+#=============================
 # rbenv
+#=============================
 eval "$(rbenv init - zsh)"
-
 
 #=============================
 # source perlbrew
