@@ -47,7 +47,7 @@ git submodule init
 git submodule update
 
 # Bundleinstall 
-git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+git clone https://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim
 vim +NeoBundleInstall! +q
 
 # vimproc setup
