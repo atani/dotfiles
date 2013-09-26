@@ -1,14 +1,12 @@
-" vi との互換性OFF
-set nocompatible
-
 " ファイル形式の検出を無効にする
 filetype off
 
 if has('vim_starting')
+  set nocompatible
   set runtimepath+=~/.vim/bundle/neobundle.vim/
-  call neobundle#rc(expand('~/.vim/bundle'))
-  filetype plugin indent on
 endif
+
+call neobundle#rc(expand('~/.vim/bundle'))
 
 NeoBundle 'Shougo/vimproc', {
       \ 'build' : {
@@ -307,5 +305,7 @@ smap <C-k> <Plug>(neocomplcache_snippets_expand)
 autocmd BufWinLeave ?* silent mkview
 autocmd BufWinEnter ?* silent loadview
 
+
+filetype plugin indent on
 NeoBundleCheck
 
