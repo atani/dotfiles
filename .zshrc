@@ -191,8 +191,11 @@ _cache_hosts=($( print_known_hosts ))
 #=============================
 # source zsh-syntax-highlighting
 #=============================
-if [ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-    source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[ ! -f ~/.zsh ] && mkdir ~/.zsh
+[ ! -e ~/.zsh/zsh-syntax-highlighting ] \
+&& git clone git://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
+if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+    source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
 #=============================
