@@ -102,6 +102,7 @@ case "${OSTYPE}" in
 freebsd*|darwin*)
     alias ls="ls -G -w"
     alias rm="rmtrash"
+    source ~/.zsh/ssh-host-color
     ;;
 linux*)
     alias ls="ls --color"
@@ -184,11 +185,6 @@ function print_known_hosts (){
 _cache_hosts=($( print_known_hosts ))
 
 #=============================
-# load user .zshrc configuration file
-#=============================
-[ -f ~/.zshrc.local ] && source ~/.zshrc.local
-
-#=============================
 # source zsh-syntax-highlighting
 #=============================
 [ ! -d ~/.zsh ] && mkdir ~/.zsh
@@ -196,6 +192,13 @@ _cache_hosts=($( print_known_hosts ))
 && git clone git://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
 if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
     source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
+#=============================
+# load user .zshrc configuration file
+#=============================
+if [ -f ~/.zsh/ssh-host-color ]; then
+    source ~/.zsh/ssh-host-color
 fi
 
 #=============================
