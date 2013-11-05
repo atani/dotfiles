@@ -26,14 +26,27 @@ REPORTTIME=3 #n秒以上かかったコマンドは統計情報を表示する�
 autoload colors
 colors
 NOW=`date +"%Y/%m/%d %H:%M"`
+
+# ブランチ名をプロンプトに表示する。
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' formats '[%b]'
+zstyle ':vcs_info:*' actionformats '[%b|%a]'
+precmd () {
+    psvar=()
+    LANG=en_US.UTF-8 vcs_info
+    [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+}
+
+local p_branch="%1(v|%F{green}%1v%f|)"
+
 case ${UID} in
 0)
-    PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') %B%{${fg[red]}%}%/#%{${reset_color}%}%b "
+    PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') %B%{${fg[red]}%}%/#%{${reset_color}%}%b $p_branch"$'\n'"# "
     PROMPT2="%B%{${fg[red]}%}%_#%{${reset_color}%}%b "
     SPROMPT="%B%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
     ;;
 *)
-    PROMPT="$NOW %{${fg[red]}%}%/%%%{${reset_color}%} "
+    PROMPT="$NOW %{${fg[red]}%}%/%{${reset_color}%} $p_branch"$'\n'"# "
     PROMPT2="%{${fg[red]}%}%_%%%{${reset_color}%} "
     SPROMPT="%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} "
     [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
@@ -111,15 +124,7 @@ linux*)
     ;;
 esac
 
-alias la="ls -a"
-alias lf="ls -F"
 alias ll="ls -l"
-
-alias du="du -h"
-alias df="df -h"
-
-alias su="su -l"
-
 
 ## terminal configuration
 #
@@ -166,17 +171,6 @@ xterm|xterm-color|kterm|kterm-color)
     }
     ;;
 esac
-
-# ブランチ名をプロンプトに表示する。
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' formats '(%s)-[%b]'
-zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a]'
-precmd () {
-    psvar=()
-    LANG=en_US.UTF-8 vcs_info
-    [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
-}
-RPROMPT="%1(v|%F{green}%1v%f|)"
 
 # sshのホスト名をknown_hostsから補完する
 function print_known_hosts (){
