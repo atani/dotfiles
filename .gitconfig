@@ -7,3 +7,27 @@
 	ui = auto
 [push]
 	default = current
+[alias]
+    co = checkout
+    back = checkout HEAD --
+    a = add
+    aa = reset HEAD
+    cm = commit
+    ci = commit -m
+    ps = push origin
+    pl = !git pull && git submodule update --init
+    di = diff
+    st = status
+    br = branch
+    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    ls = log --stat
+    dn = diff --name-only
+    amend = commit --amend -C HEAD
+    cdev = checkout develop
+    cmas = checkout master
+    ff = flow feature
+    ffs = flow feature start
+    fff = flow feature finish
+    frs = flow release start
+    frf = flow release finish
+    gr = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
