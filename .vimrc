@@ -46,7 +46,7 @@ NeoBundle 'vim-scripts/sudo.vim.git'
 NeoBundle 'tpope/vim-pathogen.git'
 NeoBundle 'Google-translator'
 NeoBundle 'Markdown'
-NeoBundle 'trinity.vim'
+NeoBundle 'Trinity.vim'
 
 nmap ni   :NeoBundleInstall<CR>
 nmap ,ni  :NeoBundleInstall!<CR>
