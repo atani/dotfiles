@@ -62,16 +62,6 @@ setopt noautoremoveslash # no remove postfix slash of command line
 setopt nolistbeep # no beep sound when complete list displayed
 setopt nonomatch
 
-## Keybind configuration
-#
-# emacs like keybind (e.x. Ctrl-a gets to line head and Ctrl-e gets
-#   to end) and something additions
-#
-#bindkey -e
-#bindkey "^[[1~" beginning-of-line # Home gets to line head
-#bindkey "^[[4~" end-of-line # End gets to line end
-#bindkey "^[[3~" delete-char # Del
-
 # historical backward/forward search with linehead string binded to ^P/^N
 #
 autoload history-search-end
@@ -110,20 +100,6 @@ setopt complete_aliases     # aliased ls needs if file/dir completions work
 
 alias where="command -v"
 alias j="jobs -l"
-
-case "${OSTYPE}" in
-freebsd*|darwin*)
-    alias ls="ls -G -w"
-    alias rm="rmtrash"
-    if [ -f ~/.zsh/ssh-host-color ]; then
-        source ~/.zsh/ssh-host-color
-    fi
-    ;;
-linux*)
-    alias ls="ls --color"
-    ;;
-esac
-
 alias ll="ls -l"
 
 ## terminal configuration
@@ -199,3 +175,20 @@ eval "$(rbenv init - zsh)"
 # source perlbrew
 #=============================
 source ~/perl5/perlbrew/etc/bashrc
+
+#=============================
+# OS Judgment
+#=============================
+case ${OSTYPE} in
+    darwin*)
+        export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=/usr/local/Caskroom"
+        ;;
+    linux*)
+        #ここにLinux向けの設定
+        ;;
+esac
+
+#=============================
+# Include
+#=============================
+[ -f ~/.zshrc.include ] && source ~/.zshrc.include
