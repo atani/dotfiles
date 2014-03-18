@@ -182,6 +182,8 @@ source ~/perl5/perlbrew/etc/bashrc
 case ${OSTYPE} in
     darwin*)
         export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=/usr/local/Caskroom"
+
+        alias rm="rmtrash"
         ;;
     linux*)
         #ここにLinux向けの設定
