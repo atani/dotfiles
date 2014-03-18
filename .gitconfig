@@ -2,7 +2,6 @@
 	editor = /usr/bin/vim
 [user]
 	name = atani
-	email = a.taniwaki@paperboy.co.jp
 [color]
 	ui = auto
 [push]
