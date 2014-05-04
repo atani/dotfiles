@@ -21,7 +21,7 @@ bin
 
 # 必要ディレクトリの作成
 cd ~
-mkdir bin tmp src
+mkdir bin tmp src 
 touch ~/.zsh/`hostname`.zsh
 touch ~/.vimrc.local
 
@@ -65,3 +65,12 @@ chmod 755 /usr/local/bin/perlbrew
 # bin file setup
 cp -p ~/dotfiles/bin/alc /usr/local/bin/
 
+# rbenv
+git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+
+if [ "$SHELL" -ne "zsh" ];then
+  echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.zsh_profile
+  echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
+fi
+
+exec $SHELL -l
