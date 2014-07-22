@@ -17,6 +17,7 @@ bin
 .tmux.conf
 .zsh
 .rbenv
+.peco
 "
 
 # 必要ディレクトリの作成
