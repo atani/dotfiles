@@ -11,6 +11,7 @@ install brew-cask || true
 install zsh || true
 install wget || true
 install git || true
+install mercurial || true
 
 # Install Cask formulae
 cask install google-chrome || true
