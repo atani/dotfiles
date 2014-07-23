@@ -16,7 +16,7 @@ bin
 .bashrc
 .tmux.conf
 .zsh
-.rbenv
+.anyenv
 .peco
 "
 
@@ -58,20 +58,10 @@ case $OSTYPE in
     linux-gnu )  make -f make_unix.mak ;;
 esac
 
-curl -L http://xrl.us/perlbrew >/usr/local/bin/perlbrew
-chmod 755 /usr/local/bin/perlbrew
-
-/usr/local/bin/perlbrew init
-
 # bin file setup
 cp -p ~/dotfiles/bin/alc /usr/local/bin/
 
-# rbenv
-git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
-
-if [ "$SHELL" -ne "zsh" ];then
-  echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.zsh_profile
-  echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
-fi
+# anyenv
+git clone https://github.com/riywo/anyenv ~/dotfiles/.anyenv
 
 exec $SHELL -l

@@ -19,7 +19,7 @@ setopt extended_history
 function history-all { history -E 1 }
 
 # Path
-PATH=$HOME/.rbenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/X11/bin:$HOME/dev/tools 
+PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/X11/bin:$HOME/dev/tools 
 REPORTTIME=3 #n秒以上かかったコマンドは統計情報を表示する。
 
 # Set prompt
@@ -167,14 +167,12 @@ if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
 fi
 
 #=============================
-# rbenv
+# anyenv
 #=============================
-eval "$(rbenv init - zsh)"
-
-#=============================
-# source perlbrew
-#=============================
-source ~/perl5/perlbrew/etc/bashrc
+if [ -d $HOME/.anyenv ] ; then
+    export PATH="$HOME/.anyenv/bin:$PATH"
+    eval "$(anyenv init - zsh)"
+fi
 
 #=============================
 # OS Judgment
