@@ -175,6 +175,18 @@ if [ -d $HOME/.anyenv ] ; then
 fi
 
 #=============================
+# Auto rbenv rehash
+#=============================
+function gem(){
+    $RBENV_ROOT/shims/gem $*
+    if [ "$1" = "install" ] || [ "$1" = "i" ] || [ "$1" = "uninstall" ] || [ "$1" = "uni" ]
+    then
+        rbenv rehash
+        rehash
+    fi
+}
+
+#=============================
 # OS Judgment
 #=============================
 case ${OSTYPE} in
