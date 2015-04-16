@@ -25,7 +25,6 @@ REPORTTIME=3 #n秒以上かかったコマンドは統計情報を表示する�
 # Set prompt
 autoload colors
 colors
-NOW=`date +"%Y/%m/%d %H:%M"`
 
 # ブランチ名をプロンプトに表示する。
 autoload -Uz vcs_info
@@ -46,7 +45,7 @@ case ${UID} in
     SPROMPT="%B%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
     ;;
 *)
-    PROMPT="[$NOW]$p_branch%{${fg[red]}%}%/%{${reset_color}%} "$'\n'"# "
+    PROMPT="[%D %T]$p_branch%{${fg[red]}%}%/%{${reset_color}%} "$'\n'"# "
     PROMPT2="%{${fg[red]}%}%_%%%{${reset_color}%} "
     SPROMPT="%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} "
     [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
