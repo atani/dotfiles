@@ -1,31 +1,29 @@
 " ファイル形式の検出を無効にする
 filetype off
 
+" Note: Skip initialization for vim-tiny or vim-small.
+if 0 | endif
+
 if has('vim_starting')
-  set nocompatible
+  if &compatible
+    set nocompatible               " Be iMproved
+  endif
+
+  " Required:
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-call neobundle#rc(expand('~/.vim/bundle'))
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
 
-NeoBundle 'Shougo/vimproc', {
-      \ 'build' : {
-      \     'windows' : 'make -f make_mingw32.mak',
-      \     'cygwin' : 'make -f make_cygwin.mak',
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
-      \    },
-      \ }
-
-" github にあるプラグイン
-NeoBundle 'itchyny/lightline.vim'
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'itchyny/landscape.vim'
 NeoBundle 'kana/vim-smartchr.git'
-NeoBundle 'mattn/zencoding-vim.git'
 NeoBundle 'othree/eregex.vim.git'
-NeoBundle 'Shougo/neobundle.vim.git'
 NeoBundle 'Shougo/unite.vim.git'
 NeoBundle 'h1mesuke/unite-outline.git'
 NeoBundle 'tsukkee/unite-tag.git'
@@ -47,6 +45,15 @@ NeoBundle 'tpope/vim-pathogen.git'
 NeoBundle 'Google-translator'
 NeoBundle 'Markdown'
 NeoBundle 'Trinity.vim'
+
+call neobundle#end()
+
+" Required:
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
 
 nmap ni   :NeoBundleInstall<CR>
 nmap ,ni  :NeoBundleInstall!<CR>
