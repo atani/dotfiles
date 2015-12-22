@@ -239,6 +239,9 @@ set ruler
 " " start   : 挿入モード開始位置より手前の文字
 set backspace=indent,eol,start
 
+" タブと行の続きを可視化する
+set listchars=tab:>\ ,extends:<
+
 " シンタックスハイライトを有効にする
 syntax enable
 
