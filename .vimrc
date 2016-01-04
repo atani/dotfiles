@@ -27,39 +27,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
-
-"NeoBundle 'itchyny/landscape.vim'
-"NeoBundle 'kana/vim-smartchr.git'
-"NeoBundle 'othree/eregex.vim.git'
-"NeoBundle 'Shougo/unite.vim.git'
-"NeoBundle 'h1mesuke/unite-outline.git'
-"NeoBundle 'tsukkee/unite-tag.git'
-"NeoBundle 'Shougo/vimfiler.git'
-"NeoBundle 'Shougo/vimshell.git'
-"NeoBundle 'thinca/vim-quickrun.git'
-"NeoBundle 'vim-scripts/delphi.vim.git'
-"NeoBundle 'vim-scripts/JSON.vim.git'
-"NeoBundle 'thinca/vim-ref.git'
-"NeoBundle 'vim-scripts/molokai.git'
-"NeoBundle 'tpope/vim-surround.git'
-"NeoBundle 'petdance/vim-perl.git'
-"NeoBundle 'hotchpotch/perldoc-vim.git'
-"NeoBundle 'Shougo/neocomplete.git'
-"NeoBundle 'Shougo/neosnippet.git'
-"NeoBundle 'Shougo/neosnippet-snippets.git'
-"NeoBundle 'vim-scripts/sudo.vim.git'
-"NeoBundle 'tpope/vim-pathogen.git'
-"NeoBundle 'Google-translator'
-"
-"call neobundle#end()
-
-" Required:
-"filetype plugin indent on
-
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-" NeoBundleCheck
-
 "nmap ni   :NeoBundleInstall<CR>
 "nmap ,ni  :NeoBundleInstall!<CR>
 "nmap nc   :NeoBundleClean<CR>
@@ -74,38 +41,6 @@ nnoremap <silent> ,gh :<C-u>GitGutterLineHighlightsToggle<CR>
 let g:gitgutter_sign_added = '✚'
 let g:gitgutter_sign_modified = '➜'
 let g:gitgutter_sign_removed = '✘'
-
-" lightline.vim
-let g:lightline = {
-        \ 'colorscheme': 'landscape',
-        \ 'mode_map': {'c': 'NORMAL'},
-        \ 'active': {
-        \   'left': [
-        \     ['mode', 'paste'],
-        \     ['fugitive', 'gitgutter', 'filename'],
-        \   ],
-        \   'right': [
-        \     ['lineinfo', 'syntastic'],
-        \     ['percent'],
-        \     ['charcode', 'fileformat', 'fileencoding', 'filetype'],
-        \   ]
-        \ },
-        \ 'component_function': {
-        \   'modified': 'MyModified',
-        \   'readonly': 'MyReadonly',
-        \   'fugitive': 'MyFugitive',
-        \   'filename': 'MyFilename',
-        \   'fileformat': 'MyFileformat',
-        \   'filetype': 'MyFiletype',
-        \   'fileencoding': 'MyFileencoding',
-        \   'mode': 'MyMode',
-        \   'syntastic': 'SyntasticStatuslineFlag',
-        \   'charcode': 'MyCharCode',
-        \   'gitgutter': 'MyGitGutter',
-        \ },
-        \ 'separator': {'left': '⮀', 'right': '⮂'},
-        \ 'subseparator': {'left': '⮁', 'right': '⮃'}
-        \ }
 
 function! MyModified()
   return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
@@ -145,10 +80,6 @@ endfunction
 
 function! MyFileencoding()
   return winwidth('.') > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
-endfunction
-
-function! MyMode()
-  return winwidth('.') > 60 ? lightline#mode() : ''
 endfunction
 
 function! MyGitGutter()
@@ -265,12 +196,6 @@ set softtabstop=4
 " インデントの各段階に使われる空白の数
 set shiftwidth=4
 
-" PowerLine
-let g:Powerline_symbols = 'fancy' 
-set nocompatible   " Disable vi-compatibility
-set laststatus=2   " Always show the statusline
-set encoding=utf-8 " Necessary to show unicode glyphs
-
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
 " Use neocomplcache.
@@ -317,7 +242,4 @@ smap <C-k> <Plug>(neocomplcache_snippets_expand)
 autocmd BufWinLeave ?* silent mkview
 autocmd BufWinEnter ?* silent loadview
 
-
-"filetype plugin indent on
-"NeoBundleCheck
 
