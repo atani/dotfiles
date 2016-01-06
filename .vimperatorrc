@@ -4,9 +4,19 @@ source! "~/.vimperatorrc.local"
 nnoremap j 4j
 nnoremap k 4k
 
+" S-b,S-fに戻る,進むを割り当てる
+nnoremap <S-b> <S-h>
+nnoremap <S-f> <S-l>
+
+" S-h,S-lに前のタブ,次のタブを割り当てる
+map <C-h> <C-PageUp>
+map <C-l> <C-PageDown>
+
+" タブを閉じる
+map <S-d> d
+
 nnoremap <S-K> <C-P>
 nnoremap <S-J> <C-N>
-nnoremap <S-D> :tabonly<Cr>
 
 cnoremap <C-N> <Up>
 cnoremap <C-P> <Down>
