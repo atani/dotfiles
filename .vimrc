@@ -17,7 +17,11 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
   Plug 'Trinity.vim'
+  Plug 'fatih/vim-go'
 call plug#end()
+
+" golang config
+let g:go_fmt_command = "goimports"
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
