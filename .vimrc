@@ -1,106 +1,50 @@
-" ファイル形式の検出を無効にする
-filetype off
-
-" Note: Skip initialization for vim-tiny or vim-small.
-if 0 | endif
-
 if has('vim_starting')
-  if &compatible
-    set nocompatible               " Be iMproved
-  endif
-
-  " Required:
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+  set rtp+=~/.vim/plugged/vim-plug
+  if !isdirectory(expand('~/.vim/plugged/vim-plug'))
+    echo 'install vim-plug...'
+    call system('mkdir -p ~/.vim/plugged/vim-plug')
+    call system('git clone https://github.com/junegunn/vim-plug.git ~/.vim/plugged/vim-plug/autoload')
+  end
 endif
 
-" Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
+call plug#begin('~/.vim/plugged')
+  Plug 'junegunn/vim-plug',
+        \ {'dir': '~/.vim/plugged/vim-plug/autoload'}
+  Plug 'junegunn/seoul256.vim'
+  Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle'] }
+  Plug 'tpope/vim-fireplace', { 'for': ['clojure'] }
+  Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+  Plug 'tpope/vim-fugitive'
+  Plug 'airblade/vim-gitgutter'
+  Plug 'Trinity.vim'
+  Plug 'fatih/vim-go'
+call plug#end()
 
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'itchyny/landscape.vim'
-NeoBundle 'kana/vim-smartchr.git'
-NeoBundle 'othree/eregex.vim.git'
-NeoBundle 'Shougo/unite.vim.git'
-NeoBundle 'h1mesuke/unite-outline.git'
-NeoBundle 'tsukkee/unite-tag.git'
-NeoBundle 'Shougo/vimfiler.git'
-NeoBundle 'Shougo/vimshell.git'
-NeoBundle 'thinca/vim-quickrun.git'
-NeoBundle 'vim-scripts/delphi.vim.git'
-NeoBundle 'vim-scripts/JSON.vim.git'
-NeoBundle 'thinca/vim-ref.git'
-NeoBundle 'vim-scripts/molokai.git'
-NeoBundle 'tpope/vim-surround.git'
-NeoBundle 'petdance/vim-perl.git'
-NeoBundle 'hotchpotch/perldoc-vim.git'
-NeoBundle 'Shougo/neocomplete.git'
-NeoBundle 'Shougo/neosnippet.git'
-NeoBundle 'Shougo/neosnippet-snippets.git'
-NeoBundle 'vim-scripts/sudo.vim.git'
-NeoBundle 'tpope/vim-pathogen.git'
-NeoBundle 'Google-translator'
-NeoBundle 'Markdown'
-NeoBundle 'Trinity.vim'
+" golang config
+let g:go_fmt_command = "goimports"
 
-call neobundle#end()
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
-" Required:
-filetype plugin indent on
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
-
-nmap ni   :NeoBundleInstall<CR>
-nmap ,ni  :NeoBundleInstall!<CR>
-nmap nc   :NeoBundleClean<CR>
+"nmap ni   :NeoBundleInstall<CR>
+"nmap ,ni  :NeoBundleInstall!<CR>
+"nmap nc   :NeoBundleClean<CR>
 " for airblade/vim-gitgutter
 nnoremap <silent> ,gg :<C-u>GitGutterToggle<CR>
 nnoremap <silent> ,gh :<C-u>GitGutterLineHighlightsToggle<CR>
 
 " ファイル形式検出、プラグイン、インデントを ON
-filetype plugin indent on 
+" filetype plugin indent on 
 
 " vim-gitgutter
 let g:gitgutter_sign_added = '✚'
 let g:gitgutter_sign_modified = '➜'
 let g:gitgutter_sign_removed = '✘'
-
-" lightline.vim
-let g:lightline = {
-        \ 'colorscheme': 'landscape',
-        \ 'mode_map': {'c': 'NORMAL'},
-        \ 'active': {
-        \   'left': [
-        \     ['mode', 'paste'],
-        \     ['fugitive', 'gitgutter', 'filename'],
-        \   ],
-        \   'right': [
-        \     ['lineinfo', 'syntastic'],
-        \     ['percent'],
-        \     ['charcode', 'fileformat', 'fileencoding', 'filetype'],
-        \   ]
-        \ },
-        \ 'component_function': {
-        \   'modified': 'MyModified',
-        \   'readonly': 'MyReadonly',
-        \   'fugitive': 'MyFugitive',
-        \   'filename': 'MyFilename',
-        \   'fileformat': 'MyFileformat',
-        \   'filetype': 'MyFiletype',
-        \   'fileencoding': 'MyFileencoding',
-        \   'mode': 'MyMode',
-        \   'syntastic': 'SyntasticStatuslineFlag',
-        \   'charcode': 'MyCharCode',
-        \   'gitgutter': 'MyGitGutter',
-        \ },
-        \ 'separator': {'left': '⮀', 'right': '⮂'},
-        \ 'subseparator': {'left': '⮁', 'right': '⮃'}
-        \ }
 
 function! MyModified()
   return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
@@ -140,10 +84,6 @@ endfunction
 
 function! MyFileencoding()
   return winwidth('.') > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
-endfunction
-
-function! MyMode()
-  return winwidth('.') > 60 ? lightline#mode() : ''
 endfunction
 
 function! MyGitGutter()
@@ -263,12 +203,6 @@ set softtabstop=4
 " インデントの各段階に使われる空白の数
 set shiftwidth=4
 
-" PowerLine
-let g:Powerline_symbols = 'fancy' 
-set nocompatible   " Disable vi-compatibility
-set laststatus=2   " Always show the statusline
-set encoding=utf-8 " Necessary to show unicode glyphs
-
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
 " Use neocomplcache.
@@ -315,7 +249,4 @@ smap <C-k> <Plug>(neocomplcache_snippets_expand)
 autocmd BufWinLeave ?* silent mkview
 autocmd BufWinEnter ?* silent loadview
 
-
-filetype plugin indent on
-NeoBundleCheck
 
