@@ -11,13 +11,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/vim-plug',
         \ {'dir': '~/.vim/plugged/vim-plug/autoload'}
   Plug 'junegunn/seoul256.vim'
-  Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle'] }
-  Plug 'tpope/vim-fireplace', { 'for': ['clojure'] }
-  Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
   Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
-  Plug 'Trinity.vim'
   Plug 'fatih/vim-go'
+  Plug 'z0mbix/vim-shfmt', { 'for': 'sh' }
 call plug#end()
 
 " golang config
@@ -31,9 +28,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
-"nmap ni   :NeoBundleInstall<CR>
-"nmap ,ni  :NeoBundleInstall!<CR>
-"nmap nc   :NeoBundleClean<CR>
 " for airblade/vim-gitgutter
 nnoremap <silent> ,gg :<C-u>GitGutterToggle<CR>
 nnoremap <silent> ,gh :<C-u>GitGutterLineHighlightsToggle<CR>
@@ -180,6 +174,7 @@ set ruler
 set backspace=indent,eol,start
 
 " タブと行の続きを可視化する
+set list
 set listchars=tab:>\ ,extends:<
 
 " シンタックスハイライトを有効にする
@@ -193,6 +188,7 @@ set number
 
 " tabをスペースに置換
 set expandtab
+set autoindent
 
 " タブが対応する空白の数
 set tabstop=4
