@@ -2,7 +2,7 @@
 	editor = /usr/bin/vim
 [user]
 	name = atani
-	email = andk14@gmail.com
+	email = a.taniwaki@pepabo.com
 [color]
 	ui = auto
 [push]
@@ -33,3 +33,8 @@
     gr = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
 [ghq]
       root = ~/src
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
