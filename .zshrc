@@ -190,7 +190,7 @@ function gem(){
 #=============================
 case ${OSTYPE} in
     darwin*)
-        export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=/usr/local/Caskroom"
+        export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
         alias rm="rmtrash"
         ;;
@@ -268,3 +268,4 @@ export PATH=$PATH:$GOPATH/bin
 # Include
 #=============================
 [ -f ~/.zshrc.include ] && source ~/.zshrc.include
+export HOMEBREW_GITHUB_API_TOKEN=ea91517ae618ddee28b04c01977c0c9d4223c334
