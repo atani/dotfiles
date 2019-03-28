@@ -21,6 +21,7 @@ function history-all { history -E 1 }
 # Path
 PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/X11/bin:$HOME/dev/tools 
 REPORTTIME=3 #n秒以上かかったコマンドは統計情報を表示する。
+alias brew="env PATH=${PATH/\/Users\/tasukujp\/\.pyenv\/shims:/} brew"
 
 # Set prompt
 autoload colors
@@ -100,6 +101,9 @@ setopt complete_aliases     # aliased ls needs if file/dir completions work
 alias where="command -v"
 alias j="jobs -l"
 alias ll="ls -l"
+alias g="git"
+alias gi="git"
+alias gotest='go test $(go list ./... | grep -v /vendor/)'
 
 ## terminal configuration
 #
@@ -191,7 +195,6 @@ function gem(){
 case ${OSTYPE} in
     darwin*)
         export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-
         alias rm="rmtrash"
         ;;
     linux*)
@@ -268,4 +271,3 @@ export PATH=$PATH:$GOPATH/bin
 # Include
 #=============================
 [ -f ~/.zshrc.include ] && source ~/.zshrc.include
-export HOMEBREW_GITHUB_API_TOKEN=ea91517ae618ddee28b04c01977c0c9d4223c334
