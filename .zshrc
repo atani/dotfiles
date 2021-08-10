@@ -19,9 +19,9 @@ setopt extended_history
 function history-all { history -E 1 }
 
 # Path
-PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/X11/bin:$HOME/dev/tools 
+PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/X11/bin:/opt/homebrew/sbin
+alias brew="env PATH=${PATH/\/Users\/${USER}\/\.pyenv\/shims:/} brew"
 REPORTTIME=3 #n秒以上かかったコマンドは統計情報を表示する。
-alias brew="env PATH=${PATH/\/Users\/tasukujp\/\.pyenv\/shims:/} brew"
 
 # Set prompt
 autoload colors
@@ -103,6 +103,7 @@ alias j="jobs -l"
 alias ll="ls -l"
 alias g="git"
 alias gi="git"
+alias rm="trash"
 alias gotest='go test $(go list ./... | grep -v /vendor/)'
 
 ## terminal configuration
@@ -173,7 +174,7 @@ fi
 # anyenv
 #=============================
 if [ -d $HOME/.anyenv ] ; then
-    export PATH="$HOME/.anyenv/bin:$PATH"
+    export PATH="$PATH:$HOME/.anyenv/bin"
     eval "$(anyenv init - zsh)"
 fi
 
@@ -195,7 +196,6 @@ function gem(){
 case ${OSTYPE} in
     darwin*)
         export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-        alias rm="rmtrash"
         ;;
     linux*)
         #ここにLinux向けの設定
