@@ -1,3 +1,6 @@
+:set encoding=utf-8
+:set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
+
 if has('vim_starting')
   set rtp+=~/.vim/plugged/vim-plug
   if !isdirectory(expand('~/.vim/plugged/vim-plug'))
@@ -245,4 +248,16 @@ smap <C-k> <Plug>(neocomplcache_snippets_expand)
 autocmd BufWinLeave ?* silent mkview
 autocmd BufWinEnter ?* silent loadview
 
+" Copilot.vim
+let g:copilot_filetypes = {
+      \ '*': v:false,
+      \ 'python': v:true,
+      \ 'go': v:true,
+      \ 'vim': v:true,
+      \ 'php': v:true,
+      \ 'yaml': v:true,
+      \ }
 
+" Ctags
+set fileformats=unix,dos,mac
+set fileencodings=utf-8,euc-jp,sjis
