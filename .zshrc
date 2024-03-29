@@ -10,6 +10,7 @@ case ${UID} in
 esac
 
 # Command history
+bindkey -e
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
@@ -100,11 +101,16 @@ setopt complete_aliases     # aliased ls needs if file/dir completions work
 
 alias where="command -v"
 alias j="jobs -l"
-alias ll="ls -l"
+alias ll="eza -l"
 alias g="git"
 alias gi="git"
 alias rm="trash"
 alias gotest='go test $(go list ./... | grep -v /vendor/)'
+alias ls="eza"
+alias diff="delta"
+alias find="fd"
+alias cat="gat"
+alias grep="rg"
 
 ## terminal configuration
 #
@@ -165,7 +171,7 @@ _cache_hosts=($( print_known_hosts ))
 #=============================
 [ ! -d ~/.zsh ] && mkdir ~/.zsh
 [ ! -d ~/.zsh/zsh-syntax-highlighting ] \
-&& git clone git://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
+&& git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
 if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
     source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
@@ -175,12 +181,16 @@ fi
 #=============================
 if [ -d $HOME/.anyenv ] ; then
     export PATH="$PATH:$HOME/.anyenv/bin"
-    eval "$(anyenv init - zsh)"
+    eval "$(anyenv init -)"
 fi
 
 #=============================
 # Auto rbenv rehash
 #=============================
+[[ -d ~/.rbenv ]] && \
+export PATH=${HOME}/.rbenv/bin:${PATH} && \
+eval "$(rbenv init -)"
+
 function gem(){
     $RBENV_ROOT/shims/gem $*
     if [ "$1" = "install" ] || [ "$1" = "i" ] || [ "$1" = "uninstall" ] || [ "$1" = "uni" ]
@@ -271,3 +281,15 @@ export PATH=$PATH:$GOPATH/bin
 # Include
 #=============================
 [ -f ~/.zshrc.include ] && source ~/.zshrc.include
+export PATH="/opt/homebrew/opt/ansible@2.9/bin:$PATH"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+
+#. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#export PATH="$HOME/.nodenv/bin:$PATH"
+#eval "$(nodenv init - zsh)"
