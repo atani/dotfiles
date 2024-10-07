@@ -20,7 +20,7 @@ setopt extended_history
 function history-all { history -E 1 }
 
 # Path
-PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/X11/bin:/opt/homebrew/sbin
+PATH=/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/X11/bin:$PATH
 alias brew="env PATH=${PATH/\/Users\/${USER}\/\.pyenv\/shims:/} brew"
 REPORTTIME=3 #n秒以上かかったコマンドは統計情報を表示する。
 
@@ -102,15 +102,17 @@ setopt complete_aliases     # aliased ls needs if file/dir completions work
 alias where="command -v"
 alias j="jobs -l"
 alias ll="eza -l"
+alias ls="eza"
 alias g="git"
 alias gi="git"
 alias rm="trash"
 alias gotest='go test $(go list ./... | grep -v /vendor/)'
-alias ls="eza"
 alias diff="delta"
 alias find="fd"
-alias cat="gat"
+alias cat="bat"
 alias grep="rg"
+alias sed="sd"
+alias man="tldr"
 
 ## terminal configuration
 #
@@ -188,7 +190,7 @@ fi
 # Auto rbenv rehash
 #=============================
 [[ -d ~/.rbenv ]] && \
-export PATH=${HOME}/.rbenv/bin:${PATH} && \
+export PATH=$PATH:${HOME}/.rbenv/bin && \
 eval "$(rbenv init -)"
 
 function gem(){
@@ -281,15 +283,15 @@ export PATH=$PATH:$GOPATH/bin
 # Include
 #=============================
 [ -f ~/.zshrc.include ] && source ~/.zshrc.include
-export PATH="/opt/homebrew/opt/ansible@2.9/bin:$PATH"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+#=============================
+# use abbr
+#=============================
+source /opt/homebrew/share/zsh-abbr/zsh-abbr.zsh
 
-#. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-#export PATH="$HOME/.nodenv/bin:$PATH"
-#eval "$(nodenv init - zsh)"
+#=============================
+# use zoxide
+#=============================
+eval "$(zoxide init zsh)"
