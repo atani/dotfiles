@@ -13,8 +13,6 @@ bin
 .gitconfig
 .vimrc
 .zshrc
-.bashrc
-.tmux.conf
 .zsh
 .anyenv
 .peco
@@ -31,7 +29,7 @@ if [ ! -e ~/old_files ]; then
     mkdir ~/old_files
     for FILE in ${FILELIST};
     do
-        mv ~/${FILE} ~/old_files/
+        mv -iv ~/${FILE} ~/old_files/
     done
 fi
 
@@ -39,11 +37,11 @@ fi
 for FILE in ${FILELIST};
 do
     rm -rf ~/${FILE}
-    ln -s ~/dotfiles/${FILE} ~/${FILE}
+    ln -s ~/ghq/github.com/atani/dotfiles/${FILE} ~/${FILE}
 done
 
 # git submodule init & update
-cd ~/dotfiles
+cd ~/ghq/github.com/atani/dotfiles
 git submodule init
 git submodule update
 
@@ -52,16 +50,16 @@ git clone https://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vi
 vim +NeoBundleInstall! +q
 
 # vimproc setup
-cd ~/dotfiles/.vim/bundle/vimproc/
+cd ~/ghq/github.com/atani/dotfiles/.vim/bundle/vimproc/
 case $OSTYPE in
     darwin* )    make -f make_mac.mak ;;
     linux-gnu )  make -f make_unix.mak ;;
 esac
 
 # bin file setup
-cp -p ~/dotfiles/bin/alc /usr/local/bin/
+cp -p ~/ghq/github.com/atani/dotfiles/bin/alc /usr/local/bin/
 
 # anyenv
-git clone https://github.com/riywo/anyenv ~/dotfiles/.anyenv
+git clone https://github.com/riywo/anyenv ~/ghq/github.com/atani/dotfiles/.anyenv
 
 exec $SHELL -l

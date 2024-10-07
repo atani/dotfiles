@@ -21,8 +21,9 @@ function history-all { history -E 1 }
 
 # Path
 PATH=/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/X11/bin:$PATH
-alias brew="env PATH=${PATH/\/Users\/${USER}\/\.pyenv\/shims:/} brew"
-REPORTTIME=3 #n秒以上かかったコマンドは統計情報を表示する。
+
+# ghq Settings
+git config --global ghq.root '~/ghq'
 
 # Set prompt
 autoload colors
@@ -97,22 +98,32 @@ compinit
 #
 # expand aliases before completing
 #
-setopt complete_aliases     # aliased ls needs if file/dir completions work
+#setopt complete_aliases     # aliased ls needs if file/dir completions work
+export ABBR_NO_MESSAGES=1
+source /opt/homebrew/share/zsh-abbr/zsh-abbr.zsh
 
-alias where="command -v"
-alias j="jobs -l"
-alias ll="eza -l"
-alias ls="eza"
-alias g="git"
-alias gi="git"
-alias rm="trash"
-alias gotest='go test $(go list ./... | grep -v /vendor/)'
-alias diff="delta"
-alias find="fd"
-alias cat="bat"
-alias grep="rg"
-alias sed="sd"
-alias man="tldr"
+abbr -S l='eza' >/dev/null 2>&1
+abbr -S ll='eza -l' >/dev/null 2>&1
+abbr -S v='vim' >/dev/null 2>&1
+abbr -S g='git' >/dev/null 2>&1
+abbr -f -S gs='git status' >/dev/null 2>&1
+abbr -S gb='git branch' >/dev/null 2>&1
+abbr -f -S gd='git diff' >/dev/null 2>&1
+abbr -S gc='git checkout' >/dev/null 2>&1
+abbr -S gci='git commit -m ' >/dev/null 2>&1
+abbr -S bi='brew install' >/dev/null 2>&1
+abbr -S bu='brew uninstall' >/dev/null 2>&1
+abbr -S bl='brew list' >/dev/null 2>&1
+abbr -S b='bat' >/dev/null 2>&1
+abbr -S gr='rg' >/dev/null 2>&1
+abbr -S j='z' >/dev/null 2>&1
+abbr -S ji='zi' >/dev/null 2>&1
+abbr -f -S sed='sd' >/dev/null 2>&1
+abbr -f -S man='tldr' >/dev/null 2>&1
+abbr -f -S rm='trash' >/dev/null 2>&1
+abbr -f -S cat='bat' >/dev/null 2>&1
+abbr -f -S find='fd' >/dev/null 2>&1
+abbr -f -S diff='delta' >/dev/null 2>&1
 
 ## terminal configuration
 #
@@ -287,11 +298,8 @@ export PATH=$PATH:$GOPATH/bin
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 #=============================
-# use abbr
-#=============================
-source /opt/homebrew/share/zsh-abbr/zsh-abbr.zsh
-
-#=============================
 # use zoxide
 #=============================
 eval "$(zoxide init zsh)"
+
+
