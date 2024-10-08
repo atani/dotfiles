@@ -23,7 +23,7 @@ function history-all { history -E 1 }
 PATH=/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/X11/bin:$PATH
 
 # ghq Settings
-git config --global ghq.root '~/ghq'
+git config --global ghq.root '~/src'
 
 # Set prompt
 autoload colors
