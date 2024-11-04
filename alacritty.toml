@@ -28,3 +28,7 @@ size = 14
   mods = "Command"
   action = "SelectNextTab"
 
+  [[keyboard.bindings]]
+  key = "¥"
+  chars = '\'
+
