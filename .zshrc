@@ -102,28 +102,31 @@ compinit
 export ABBR_NO_MESSAGES=1
 source /opt/homebrew/share/zsh-abbr/zsh-abbr.zsh
 
-abbr -S l='eza' >/dev/null 2>&1
-abbr -S ll='eza -l' >/dev/null 2>&1
-abbr -S v='vim' >/dev/null 2>&1
-abbr -S g='git' >/dev/null 2>&1
-abbr -f -S gs='git status' >/dev/null 2>&1
-abbr -S gb='git branch' >/dev/null 2>&1
-abbr -f -S gd='git diff' >/dev/null 2>&1
-abbr -S gc='git checkout' >/dev/null 2>&1
-abbr -S gci='git commit -m ' >/dev/null 2>&1
-abbr -S bi='brew install' >/dev/null 2>&1
-abbr -S bu='brew uninstall' >/dev/null 2>&1
-abbr -S bl='brew list' >/dev/null 2>&1
-abbr -S b='bat' >/dev/null 2>&1
-abbr -S j='z' >/dev/null 2>&1
-abbr -S ji='zi' >/dev/null 2>&1
-abbr -f -S grep='rg' >/dev/null 2>&1
-abbr -f -S sed='sd' >/dev/null 2>&1
-abbr -f -S man='tldr' >/dev/null 2>&1
-abbr -f -S rm='trash' >/dev/null 2>&1
-abbr -f -S cat='bat' >/dev/null 2>&1
-abbr -f -S find='fd' >/dev/null 2>&1
-abbr -f -S diff='delta' >/dev/null 2>&1
+{
+  abbr -S l='eza'
+  abbr -S ll='eza -l'
+  abbr -S v='vim'
+  abbr -S g='git'
+  abbr -f -S gs='git status'
+  abbr -S gb='git branch'
+  abbr -f -S gd='git diff'
+  abbr -S gc='git checkout'
+  abbr -S gci='git commit -m "'
+  abbr -S gpm='git pull origin $(git branch --list | grep -q "main" && echo main || echo master)'
+  abbr -S gp='git pull origin'
+  abbr -S bi='brew install'
+  abbr -S bu='brew uninstall'
+  abbr -S bl='brew list'
+  abbr -S b='bat'
+  abbr -S j='z'
+  abbr -S ji='zi'
+  abbr -f -S grep='rg'
+  abbr -f -S sed='sd'
+  abbr -f -S man='tldr'
+  abbr -f -S rm='trash'
+  abbr -f -S cat='bat'
+  abbr -f -S find='fd'
+} >/dev/null 2>&1
 
 ## terminal configuration
 #
