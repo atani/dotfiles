@@ -118,6 +118,8 @@ source /opt/homebrew/share/zsh-abbr/zsh-abbr.zsh
   abbr -S bu='brew uninstall'
   abbr -S bl='brew list'
   abbr -S b='bat'
+  abbr -S d='docker'
+  abbr -S doc='docker-compose'
   abbr -S j='z'
   abbr -S ji='zi'
   abbr -f -S grep='rg'
@@ -126,6 +128,7 @@ source /opt/homebrew/share/zsh-abbr/zsh-abbr.zsh
   abbr -f -S rm='trash'
   abbr -f -S cat='bat'
   abbr -f -S find='fd'
+  abbr -f -S curl='https'
 } >/dev/null 2>&1
 
 ## terminal configuration
@@ -305,4 +308,4 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 #=============================
 eval "$(zoxide init zsh)"
 
-
+export PATH="/opt/homebrew/opt/mysql@8.4/bin:$PATH"
