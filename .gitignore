@@ -23,7 +23,8 @@
 !/.zsh
 !/Brewfile
 !/Brewfile.development
-!/alacritty.toml
+!/ghostty
+!/neovim
 
 # 上記に"無視したくないファイル"としてリスト化した中から、さらに"無視したいファイル"を指定
 /.vim/.netrwhist
