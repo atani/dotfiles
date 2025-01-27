@@ -15,6 +15,9 @@ HISTFILE=$HOME/.zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
 
+## change ¥ -> \
+bindkey -s '¥' '\\'
+
 # コマンドの開始時のタイムスタンプ(エポックからの秒数)と実行時間(秒単位)をヒストリに含める。
 setopt extended_history
 function history-all { history -E 1 }
@@ -107,6 +110,7 @@ source /opt/homebrew/share/zsh-abbr/zsh-abbr.zsh
   abbr -S ll='eza -l'
   abbr -S v='vim'
   abbr -S g='git'
+  abbr -S gi='git'
   abbr -f -S gs='git status'
   abbr -S gb='git branch'
   abbr -f -S gd='git diff'
@@ -126,6 +130,7 @@ source /opt/homebrew/share/zsh-abbr/zsh-abbr.zsh
   abbr -f -S rm='trash'
   abbr -f -S cat='bat'
   abbr -f -S find='fd'
+  abbr -f -S vim='nvim'
 } >/dev/null 2>&1
 
 ## terminal configuration

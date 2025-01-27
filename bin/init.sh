@@ -49,12 +49,13 @@ git submodule update
 git clone https://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim
 vim +NeoBundleInstall! +q
 
-# vimproc setup
-cd ~/src/github.com/atani/dotfiles/.vim/bundle/vimproc/
-case $OSTYPE in
-    darwin* )    make -f make_mac.mak ;;
-    linux-gnu )  make -f make_unix.mak ;;
-esac
+# nvimプラグイン管理用のlazy.nvimインストール
+mkdir -p ~/.config/nvim/lua
+git clone --filter=blob:none https://github.com/folke/lazy.nvim.git --branch=stable ~/.local/share/nvim/lazy/lazy.nvim
+
+# nvim の設定
+ln -s ~/src/github.com/atani/dotfiles/neovim/plugins.lua ~/.config/nvim/lua/plugins.lua
+ln -s ~/src/github.com/atani/dotfiles/neovim/init.lua ~/.config/nvim/init.lua
 
 # bin file setup
 cp -p ~/src/github.com/atani/dotfiles/bin/alc /usr/local/bin/
