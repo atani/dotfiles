@@ -3,7 +3,8 @@ vim.api.nvim_set_keymap("i", "<char-165>", "\\", { noremap = true, silent = true
 vim.api.nvim_set_keymap("c", "<char-165>", "\\", { noremap = true, silent = true })
 
 -- システムクリップボードを使用
-vim.opt.clipboard = "unnamedplus"
+-- vim.opt.clipboard = "unnamedplus"
+vim.keymap.set("x", "<LeftRelease>", '"+y', { noremap = true, silent = true })
 
 -- マウス有効化
 vim.opt.mouse = "a"
