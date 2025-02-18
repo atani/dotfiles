@@ -1,0 +1,5 @@
+font-family = "PT Mono"
+font-size = 14
+copy-on-select = true
+keybind = cmd+left=previous_tab
+keybind = cmd+right=next_tab
