@@ -14,6 +14,10 @@ config.keys = {
   { key = "RightArrow", mods = "CMD", action = wezterm.action { ActivateTabRelative = 1 } },
   -- Cmd + ← で左のタブへ移動
   { key = "LeftArrow", mods = "CMD", action = wezterm.action { ActivateTabRelative = -1 } },
+  -- Cmd + { で左のペインに移動（循環あり）
+  { key = "[", mods = "CMD", action = wezterm.action { ActivatePaneDirection = "Left" } },
+  -- Cmd + } で右のペインに移動（循環あり）
+  { key = "]", mods = "CMD", action = wezterm.action { ActivatePaneDirection = "Right" } },
 }
 
 -- フォントサイズを 13.0 に設定
