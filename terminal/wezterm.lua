@@ -18,6 +18,8 @@ config.keys = {
   { key = "[", mods = "CMD", action = wezterm.action { ActivatePaneDirection = "Left" } },
   -- Cmd + } で右のペインに移動（循環あり）
   { key = "]", mods = "CMD", action = wezterm.action { ActivatePaneDirection = "Right" } },
+  -- ¥ を \ にマッピング
+  { key = "¥", mods = "", action = wezterm.action.SendKey { key = "\\" } },
 }
 
 -- フォントサイズを 13.0 に設定
