@@ -22,6 +22,9 @@ bindkey -s '¥' '\\'
 setopt extended_history
 function history-all { history -E 1 }
 
+# 既存ファイルへの上書きを防ぐ
+set -o noclobber
+
 # Path
 PATH=/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/X11/bin:$PATH
 
