@@ -22,7 +22,15 @@ config.keys = {
   { key = "¥", mods = "", action = wezterm.action.SendKey { key = "\\" } },
 }
 
--- フォントサイズを 13.0 に設定
+-- フォントサイズを 14.0 に設定
 config.font_size = 14.0
+
+config.font = wezterm.font_with_fallback {
+  "JetBrains Mono",        -- 英字・記号に強い
+  "Noto Sans Mono CJK JP"  -- 日本語対応（等幅）
+}
+
+-- スクロールバッファ
+scrollback_lines = 100000
 
 return config
