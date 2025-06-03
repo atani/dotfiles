@@ -57,8 +57,11 @@ vim.cmd [[
 
 -- ビュー保存・復元
 vim.cmd [[
-  autocmd BufWinLeave *.lua,*.go,*.rb,*.py,*.js,*.ts silent! mkview
-  autocmd BufWinEnter *.lua,*.go,*.rb,*.py,*.js,*.ts silent! loadview
+  augroup remember_cursor
+    autocmd!
+    autocmd BufWinLeave * if &modifiable | silent! mkview | endif
+    autocmd BufWinEnter * if &modifiable | silent! loadview | endif
+  augroup END
 ]]
 
 -- Ruby用インデント設定
