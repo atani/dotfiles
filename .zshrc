@@ -212,22 +212,6 @@ if [ -d $HOME/.anyenv ] ; then
 fi
 
 #=============================
-# Auto rbenv rehash
-#=============================
-[[ -d ~/.rbenv ]] && \
-export PATH=$PATH:${HOME}/.rbenv/bin && \
-eval "$(rbenv init -)"
-
-function gem(){
-    $RBENV_ROOT/shims/gem $*
-    if [ "$1" = "install" ] || [ "$1" = "i" ] || [ "$1" = "uninstall" ] || [ "$1" = "uni" ]
-    then
-        rbenv rehash
-        rehash
-    fi
-}
-
-#=============================
 # OS Judgment
 #=============================
 case ${OSTYPE} in
@@ -317,3 +301,4 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 eval "$(zoxide init zsh)"
 
 export PATH="/opt/homebrew/opt/mysql@8.4/bin:$PATH"
+eval "$(/Users/a.taniwaki/.local/bin/mise activate zsh)"
