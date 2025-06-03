@@ -63,4 +63,10 @@ cp -p ~/src/github.com/atani/dotfiles/bin/alc /usr/local/bin/
 # anyenv
 git clone https://github.com/riywo/anyenv ~/src/github.com/atani/dotfiles/.anyenv
 
+# Weztermの設定ディレクトリを作成
+mkdir -p ~/.config/wezterm
+
+# 設定ファイルのシンボリックリンクを作成
+ln -s ~/src/github.com/atani/dotfiles/terminal/wezterm.lua ~/.config/wezterm/wezterm.lua
+
 exec $SHELL -l
