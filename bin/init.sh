@@ -9,7 +9,6 @@ brew bundle
 FILELIST="
 .vim
 bin
-.bash_profile
 .git-completion.bash
 .gitignore
 .gitconfig
