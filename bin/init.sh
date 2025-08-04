@@ -16,8 +16,7 @@ bin
 .vimrc
 .zshrc
 .zsh
-.anyenv
-.peco
+mise
 "
 
 # 必要ディレクトリの作成
@@ -63,12 +62,15 @@ vim +NeoBundleInstall! +q
 cp -p ~/src/github.com/atani/dotfiles/bin/alc /usr/local/bin/
 
 # anyenv
-git clone https://github.com/riywo/anyenv ~/src/github.com/atani/dotfiles/.anyenv
+#git clone https://github.com/riywo/anyenv ~/src/github.com/atani/dotfiles/.anyenv
 
 # Weztermの設定ディレクトリを作成
 mkdir -p ~/.config/wezterm
 
 # 設定ファイルのシンボリックリンクを作成
 ln -s ~/src/github.com/atani/dotfiles/terminal/wezterm.lua ~/.config/wezterm/wezterm.lua
+
+# mise install
+mise install
 
 exec $SHELL -l
