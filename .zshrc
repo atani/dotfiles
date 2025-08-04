@@ -300,4 +300,5 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 eval "$(zoxide init zsh)"
 
 export PATH="/opt/homebrew/opt/mysql@8.4/bin:$PATH"
-eval "$(/Users/a.taniwaki/.local/bin/mise activate zsh)"
+# mise を有効化
+eval "$(mise activate zsh)"
