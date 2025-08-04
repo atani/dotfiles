@@ -136,7 +136,6 @@ source /opt/homebrew/share/zsh-abbr/zsh-abbr.zsh
   abbr -f -S cat='bat'
   abbr -f -S find='fd'
   abbr -f -S curl='https'
-  abbr -f -S vim='nvim'
 } >/dev/null 2>&1
 
 ## terminal configuration
@@ -206,10 +205,10 @@ fi
 #=============================
 # anyenv
 #=============================
-if [ -d $HOME/.anyenv ] ; then
-    export PATH="$PATH:$HOME/.anyenv/bin"
-    eval "$(anyenv init -)"
-fi
+#if [ -d $HOME/.anyenv ] ; then
+#    export PATH="$PATH:$HOME/.anyenv/bin"
+#    eval "$(anyenv init -)"
+#fi
 
 #=============================
 # OS Judgment
