@@ -24,8 +24,8 @@
 !/Brewfile
 !/Brewfile.development
 !/ghostty
-!/neovim
 !/terminal
+!/mise
 
 # 上記に"無視したくないファイル"としてリスト化した中から、さらに"無視したいファイル"を指定
 /.vim/.netrwhist
