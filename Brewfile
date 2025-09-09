@@ -1,7 +1,6 @@
 tap "olets/tap"
 brew "xz"
 brew "atuin"
-brew "bat"
 brew "docker"
 brew "eza"
 brew "fd"

@@ -124,7 +124,6 @@ source /opt/homebrew/share/zsh-abbr/zsh-abbr.zsh
   abbr -S bi='brew install'
   abbr -S bu='brew uninstall'
   abbr -S bl='brew list'
-  abbr -S b='bat'
   abbr -S d='docker'
   abbr -S doc='docker-compose'
   abbr -S j='z'
@@ -133,7 +132,6 @@ source /opt/homebrew/share/zsh-abbr/zsh-abbr.zsh
   abbr -f -S sed='sd'
   abbr -f -S man='tldr'
   abbr -f -S rm='trash'
-  abbr -f -S cat='bat'
   abbr -f -S find='fd'
   abbr -f -S curl='https'
 } >/dev/null 2>&1
@@ -301,4 +299,8 @@ eval "$(zoxide init zsh)"
 
 export PATH="/opt/homebrew/opt/mysql@8.4/bin:$PATH"
 # mise を有効化
-eval "$(mise activate zsh)"
+eval "$(~/.local/bin/mise activate zsh)"
+
+alias claude="~/.claude/local/claude"
+eval "$(atuin init zsh)"
+alias atuin-reverse='atuin list --reverse'
